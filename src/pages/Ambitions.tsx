@@ -19,10 +19,10 @@ export default function Ambitions() {
     <div className="flex flex-row justify-between text-center bg-neutral-700 text-yellow-100">
         <CobblestoneStack />
         <div className="flex flex-col items-center">
-            <h3 className="text-2xl">Ambitions</h3>
+            <h3 className="text-xl sm:text-2xl">Ambitions</h3>
             <p>Here are some ambitions of the SMP</p>
-            <ul className="w-96">
-                <li className="list-disc">Create a vast kingdom consisting an entire continent</li>
+            <ul className="w-80 sm:w-96">
+                <li className="list-disc">Have a kingdom claim an entire continent</li>
                 <li className="list-disc">Develope an entire continent with cities and towns</li>
                 <li className="list-disc">Create a large city</li>
                 <li className="list-disc">Create a railroad system</li>
