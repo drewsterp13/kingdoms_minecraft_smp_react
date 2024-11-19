@@ -1,7 +1,22 @@
 import { Link, Outlet } from "react-router-dom"
-
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+    const url = `https://api.mcsrvstat.us/3/37.10.120.43:35557`;
+
+    const [count, setCount] = useState(0)
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const result = await fetch(url)
+            result.json().then(json => {
+                console.log(json["players"]["online"])
+                setCount(json["players"]["online"])
+            })
+        }
+        fetchData();
+    })
+
   return (
     <div className="m-0 p-0 font-serif z-0 text-sm sm:text-base">
         <div className="bg-neutral-800 flex flex-row justify-between text-center text-white">
@@ -11,6 +26,10 @@ export default function Navbar() {
                 <h5 className="text-base" style={{color: "#194dff"}}>by drewsterp</h5>
             </div>
             <div className="">
+                <h3 className="text-base sm:text-xl text-zinc-300">Players</h3>
+                <h5 className="text-base sm:text-xl text-yellow-400">{count}</h5>
+            </div>
+            <div className="flex flex-col md:flex-row">
                 <Link className="mx-2 text-yellow-200 hover:text-slate-200 active:text-cyan-200" to="/">home</Link>
                 <Link className="mx-2 text-yellow-200 hover:text-slate-200 active:text-cyan-200" to="/features">features</Link>
                 <Link className="mx-2 text-yellow-200 hover:text-slate-200 active:text-cyan-200" to="/ambitions">ambitions</Link>
@@ -48,7 +67,7 @@ export default function Navbar() {
 
             
 
-            
+            {/* <API /> */}
         </div>
         {/* <div className="bg-neutral-800 text-white flex flex-row justify-around text-center">
             <div className="">
